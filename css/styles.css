@@ -1,5 +1,6 @@
 :root {
     --grid-size: 16;
+    --fill-color: black;
 }
 
 * {
@@ -27,4 +28,8 @@ body {
 .grid-square {
     flex-basis: calc(100% / var(--grid-size));
     border: 1px solid black;
+}
+
+.filled {
+    background-color: var(--fill-color);
 }
