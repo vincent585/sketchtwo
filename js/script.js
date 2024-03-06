@@ -9,6 +9,11 @@ function fillGrid(size = 16) {
   for (let i = 0; i < size * size; i++) {
     let square = document.createElement("div");
     square.className = "grid-square";
+    square.addEventListener("mouseenter", colorSquare);
     gridContainer.appendChild(square);
   }
+}
+
+function colorSquare(event) {
+  event.target.style.backgroundColor = "black";
 }
