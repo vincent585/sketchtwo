@@ -1,6 +1,7 @@
 const gridContainer = document.querySelector(".grid-container");
 const root = document.querySelector(":root");
 const resizeBtn = document.querySelector(".resize-btn");
+const penSelections = document.querySelectorAll('[name="pen-color"]');
 
 window.addEventListener("load", fillGrid());
 resizeBtn.addEventListener("click", resizeGrid);
@@ -46,5 +47,19 @@ function validGridSize(size) {
 }
 
 function colorSquare(event) {
-  event.target.classList.add("filled");
+  if ([...penSelections].find(x => x.checked === true).value === "rainbow") {
+    event.target.classList.remove("filled");
+    event.target.style.backgroundColor = getRandomColor();
+  } else {
+    event.target.style.removeProperty("background-color");
+    event.target.classList.add("filled");
+  }
+}
+
+function getRandomColor() {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+
+  return `rgb(${red}, ${green}, ${blue})`;
 }
