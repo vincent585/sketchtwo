@@ -32,7 +32,7 @@ function resizeGrid() {
 
 function validGridSize(size) {
   let valid = false;
-  if (isNaN(size)) {
+  if (typeof size !== "number") {
     alert("I need a number!");
   } else if (size < 1) {
     alert("I can't make a grid from nothing!");
